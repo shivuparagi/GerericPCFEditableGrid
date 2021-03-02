@@ -1,0 +1,89 @@
+2021-03-01 15:40:58.613 - Info	
+Packing C:\Shiva\GenericEditableGrid\GenericEditableGridSolution\obj\Release\Metadata to bin\Release\GenericEditableGridSolution.zip
+
+2021-03-01 15:40:58.644 - Info	Processing Component: Entities
+2021-03-01 15:40:58.644 - Info	Processing Component: Roles
+2021-03-01 15:40:58.644 - Info	Processing Component: Workflows
+2021-03-01 15:40:58.660 - Info	Processing Component: FieldSecurityProfiles
+2021-03-01 15:40:58.660 - Info	Processing Component: Templates
+2021-03-01 15:40:58.660 - Info	Processing Component: EntityMaps
+2021-03-01 15:40:58.660 - Info	Processing Component: EntityRelationships
+2021-03-01 15:40:58.660 - Info	Processing Component: OrganizationSettings
+2021-03-01 15:40:58.660 - Info	Processing Component: optionsets
+2021-03-01 15:40:58.660 - Info	Processing Component: CustomControls
+2021-03-01 15:40:58.691 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-03-01 15:40:59.222 - Info	Processing Component: SolutionPluginAssemblies
+2021-03-01 15:40:59.232 - Info	Processing Component: EntityDataProviders
+2021-03-01 15:40:59.378 - Info	
+Managed Pack complete.
+
+2021-03-01 15:42:18.490 - Info	
+Packing C:\Shiva\GenericEditableGrid\GenericEditableGridSolution\obj\Release\Metadata to bin\Release\GenericEditableGridSolution.zip and bin\Release\GenericEditableGridSolution_managed.zip
+
+2021-03-01 15:42:18.521 - Info	Processing Component: Entities
+2021-03-01 15:42:18.521 - Info	Processing Component: Roles
+2021-03-01 15:42:18.521 - Info	Processing Component: Workflows
+2021-03-01 15:42:18.521 - Info	Processing Component: FieldSecurityProfiles
+2021-03-01 15:42:18.521 - Info	Processing Component: Templates
+2021-03-01 15:42:18.521 - Info	Processing Component: EntityMaps
+2021-03-01 15:42:18.521 - Info	Processing Component: EntityRelationships
+2021-03-01 15:42:18.537 - Info	Processing Component: OrganizationSettings
+2021-03-01 15:42:18.537 - Info	Processing Component: optionsets
+2021-03-01 15:42:18.537 - Info	Processing Component: CustomControls
+2021-03-01 15:42:18.553 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-03-01 15:42:19.021 - Info	Processing Component: SolutionPluginAssemblies
+2021-03-01 15:42:19.037 - Info	Processing Component: EntityDataProviders
+2021-03-01 15:42:19.162 - Info	
+Unmanaged Pack complete.
+
+2021-03-01 15:42:19.162 - Info	Processing Component: Entities
+2021-03-01 15:42:19.162 - Info	Processing Component: Roles
+2021-03-01 15:42:19.162 - Info	Processing Component: Workflows
+2021-03-01 15:42:19.162 - Info	Processing Component: FieldSecurityProfiles
+2021-03-01 15:42:19.162 - Info	Processing Component: Templates
+2021-03-01 15:42:19.162 - Info	Processing Component: EntityMaps
+2021-03-01 15:42:19.162 - Info	Processing Component: EntityRelationships
+2021-03-01 15:42:19.162 - Info	Processing Component: OrganizationSettings
+2021-03-01 15:42:19.162 - Info	Processing Component: optionsets
+2021-03-01 15:42:19.162 - Info	Processing Component: CustomControls
+2021-03-01 15:42:19.162 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-03-01 15:42:19.162 - Info	Processing Component: SolutionPluginAssemblies
+2021-03-01 15:42:19.162 - Info	Processing Component: EntityDataProviders
+2021-03-01 15:42:19.287 - Info	
+Managed Pack complete.
+
+2021-03-02 17:36:43.651 - Info	
+Packing C:\Shiva\GenericEditableGrid\GenericEditableGridSolution\obj\Release\Metadata to bin\Release\GenericEditableGridSolution.zip and bin\Release\GenericEditableGridSolution_managed.zip
+
+2021-03-02 17:36:43.682 - Info	Processing Component: Entities
+2021-03-02 17:36:43.698 - Info	Processing Component: Roles
+2021-03-02 17:36:43.698 - Info	Processing Component: Workflows
+2021-03-02 17:36:43.698 - Info	Processing Component: FieldSecurityProfiles
+2021-03-02 17:36:43.713 - Info	Processing Component: Templates
+2021-03-02 17:36:43.713 - Info	Processing Component: EntityMaps
+2021-03-02 17:36:43.713 - Info	Processing Component: EntityRelationships
+2021-03-02 17:36:43.729 - Info	Processing Component: OrganizationSettings
+2021-03-02 17:36:43.729 - Info	Processing Component: optionsets
+2021-03-02 17:36:43.729 - Info	Processing Component: CustomControls
+2021-03-02 17:36:43.760 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-03-02 17:36:44.354 - Info	Processing Component: SolutionPluginAssemblies
+2021-03-02 17:36:44.354 - Info	Processing Component: EntityDataProviders
+2021-03-02 17:36:44.495 - Info	
+Unmanaged Pack complete.
+
+2021-03-02 17:36:44.495 - Info	Processing Component: Entities
+2021-03-02 17:36:44.495 - Info	Processing Component: Roles
+2021-03-02 17:36:44.495 - Info	Processing Component: Workflows
+2021-03-02 17:36:44.495 - Info	Processing Component: FieldSecurityProfiles
+2021-03-02 17:36:44.495 - Info	Processing Component: Templates
+2021-03-02 17:36:44.495 - Info	Processing Component: EntityMaps
+2021-03-02 17:36:44.495 - Info	Processing Component: EntityRelationships
+2021-03-02 17:36:44.495 - Info	Processing Component: OrganizationSettings
+2021-03-02 17:36:44.495 - Info	Processing Component: optionsets
+2021-03-02 17:36:44.495 - Info	Processing Component: CustomControls
+2021-03-02 17:36:44.495 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-03-02 17:36:44.495 - Info	Processing Component: SolutionPluginAssemblies
+2021-03-02 17:36:44.495 - Info	Processing Component: EntityDataProviders
+2021-03-02 17:36:44.620 - Info	
+Managed Pack complete.
+
