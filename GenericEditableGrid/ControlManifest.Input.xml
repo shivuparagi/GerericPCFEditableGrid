@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="GenericEditableGrid" constructor="GenericEditableGrid" version="1.0.100" display-name-key="GenericEditableGrid" description-key="GenericEditableGrid description" control-type="standard">
+    <data-set name="sampleDataSet" display-name-key="Dataset_Display_Key" cds-data-set-options="displayCommandBar:true;displayViewSelector:true;displayQuickFindSearch:true"></data-set>
+    <property name="PrimaryKeyName" display-name-key="PrimaryKeyName" description-key="PrimaryKeyName" of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="PrimaryFieldName" display-name-key="PrimaryFieldName" description-key="PrimaryFieldName" of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="ConfigFileName" display-name-key="ConfigFileName" description-key="ConfigFileName" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="EntityName" display-name-key="EntityName" description-key="EntityName" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="CSSFileName" display-name-key="CSSFileName" description-key="CSSFileName" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="ParentLinkedEntityColumnId" display-name-key="ParentLinkedEntityColumnId" description-key="ParentLinkedEntityColumnId" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="RelativeUrl" display-name-key="RelativeUrl" description-key="RelativeUrl" of-type="SingleLine.Text" usage="input" required="false" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="css/styles.css" order="2" />
+      <css path="./../node_modules/react-tabulator/lib/css/semantic-ui/tabulator_semantic-ui.css" order="3" />
+      <img path="src/success.png" />
+      <img path="src/warning.png" />
+      <img path="src/error.png"  />
+      <img path="src/next.png"  />
+      <img path="src/new.png"  />
+      <img path="src/milestone.png"  />
+      <img path="src/link.png"  />
+      <img path="src/hide16.png"  />
+      <img path="src/checkbox_checked.png"  />
+      <img path="src/checked_uncheckbox.png"  />
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API-->
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+      <uses-feature name="utils" required="true" />
+      <uses-feature name="navigation" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
