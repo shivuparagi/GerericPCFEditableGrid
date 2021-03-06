@@ -71,6 +71,17 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 			document.head.appendChild(cssLinkNode);
 		}
 	}
+
+	public getConfigFromWebResource()
+	{
+		let tmpFunctionName = this._context.parameters.ConfigFunctionName.raw ?? "";
+		if(tmpFunctionName!=="")
+		{
+			//@ts-ignore
+			return window[tmpFunctionName](); 
+		} 
+		return {};
+	}
   
 	/**
 	 * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
@@ -93,8 +104,10 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 				
 				try
 				{
-					//@ts-ignore
-					tmpGridConfig = getConfig();
+					// //@ts-ignore
+					// tmpGridConfig = getConfig();
+
+					tmpGridConfig = this.getConfigFromWebResource();
 				}
 				catch
 				{
@@ -127,16 +140,18 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 		this._context=context;
 		this.props.context = this._context;
 		this.props.refresh = this.Refresh;
-			
-		this.props.optionSets = GetSampleOptionSets();
+		
 		try
 		{
 			//@ts-ignore
-			this.props.gridConfig = getConfig();
+			// this.props.gridConfig = getConfig();
+
+			this.props.gridConfig = this.getConfigFromWebResource();
 		}
 		catch{}
 		
 		// /* For local START*/
+		//this.props.optionSets = GetSampleOptionSets();
 		// 	this.props.gridConfig = GetSampleConfig();
 		// 	ReactDOM.render(React.createElement(GenericGrid, this.props),this._container);
 		// 	return;
@@ -194,7 +209,7 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 				);
 				},
 				function (error) {
-				thisref._optionSets = GetSampleOptionSets();
+				// thisref._optionSets = GetSampleOptionSets();
 				thisref.props.optionSets = thisref._optionSets;
 				ReactDOM.render(
 					React.createElement(GenericGrid, thisref.props),

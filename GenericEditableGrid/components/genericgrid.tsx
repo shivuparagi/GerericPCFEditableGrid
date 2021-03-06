@@ -131,6 +131,7 @@ class GenericGrid extends React.Component<iPropsInput> {
   _parentLinkedEntityColumnId: string = "";
   _relativeUrl: string = "";
   _groupBy: string[] = [];
+  _gridId: string = "";
   _gridOptions: any = {
     layoutColumnsOnNewData: true,
     tooltips: true,
@@ -151,6 +152,7 @@ class GenericGrid extends React.Component<iPropsInput> {
       formatCells: false, //show raw cell values without formatter
     },
   };
+  _showHeaderMenu = false;
 
   _gridConfig: any = undefined;
   _hygiene: any = undefined;
@@ -193,6 +195,8 @@ class GenericGrid extends React.Component<iPropsInput> {
 
     this._primaryKeyName = props.context.parameters.PrimaryKeyName.raw ?? "";
     this._relativeUrl = props.context.parameters.RelativeUrl.raw ?? "";
+    this._gridId = props.context.parameters?.GridId?.raw ?? "";
+    this._showHeaderMenu = this._gridConfig?.ShowHeaderMenu ?? false;
 
     this._primaryFieldName =
       props.context.parameters.PrimaryFieldName.raw ?? "";
@@ -241,37 +245,53 @@ class GenericGrid extends React.Component<iPropsInput> {
     let thisRef = this;
     let boolIsFrozen = this._gridConfig?.IsFrozen ?? false;
 
-    this._editableColumns.push({
-      title:
-        "<input class='grid-header-checkbox' type='checkbox' id='chkHeader'>",
-      field: IS_SELECTED,
-      align: "center",
-      width: 60,
-      formatter: this.checkBoxFormatter,
-      frozen: true,
-      headerSort: false,
-      headerClick: function (e: any, column: any) {
-        if (e.srcElement.id.toString().length === 0) {
-          thisRef.SelectOrDeselectAllRows(false);
-        } else {
-          thisRef.SelectOrDeselectAllRows(true);
-        }
-      },
-      cellClick: function (e: any, cell: any) {
-        if (e.srcElement.id.toString().length === 0) {
+    let boolEnableRowSelection = this._gridConfig?.EnableRowSelection ?? true;
+
+    if (boolEnableRowSelection)
+      this._editableColumns.push({
+        title:
+          "<input class='grid-header-checkbox' type='checkbox' id='chkHeader" +
+          this._gridId +
+          "'>",
+        field: IS_SELECTED,
+        align: "center",
+        width: 60,
+        formatter: this.checkBoxFormatter,
+        frozen: true,
+        headerSort: false,
+        headerClick: function (e: any, column: any) {
+          if (e.srcElement.id.toString().length === 0) {
+            thisRef.SelectOrDeselectAllRows(false);
+          } else {
+            thisRef.SelectOrDeselectAllRows(true);
+          }
+        },
+        cellClick: function (e: any, cell: any) {
+          if (e.srcElement.id.toString().length === 0) {
+            try {
+              cell.getRow().update({
+                is_selected: !cell?.getElement()?.firstChild.checked,
+              });
+            } catch {}
+          }
           try {
-            cell.getRow().update({
-              is_selected: !cell?.getElement()?.firstChild.checked,
-            });
+            if (thisRef._gridConfig?.OnRowSelectEvent) {
+              try {
+                const callBackName =
+                  "return " + thisRef._gridConfig?.OnRowSelectEvent;
+                const dynamicFunctionCall = new Function(callBackName)();
+                let ret = dynamicFunctionCall(cell, thisRef);
+                return ret;
+              } catch {}
+            }
           } catch {}
-        }
-      },
-    });
+        },
+      });
 
     let boolShowRowState = this._gridConfig?.ShowRowState ?? true;
 
-    if (boolShowRowState)
-      this._editableColumns.push({
+    if (boolShowRowState) {
+      let tmpColRowState: any = {
         formatter: function (cell: any) {
           let tmpDiv = document.createElement("div");
           tmpDiv.tabIndex = -1;
@@ -286,8 +306,10 @@ class GenericGrid extends React.Component<iPropsInput> {
         width: 100,
         frozen: boolIsFrozen,
         title: "Row State",
-        headerMenu: this.headerMenu,
-      });
+      };
+      if (this._showHeaderMenu) tmpColRowState["headerMenu"] = this.headerMenu;
+      this._editableColumns.push(tmpColRowState);
+    }
 
     this._context.parameters.sampleDataSet.columns.forEach(
       (column: DataSetInterfaces.Column) => {
@@ -303,7 +325,7 @@ class GenericGrid extends React.Component<iPropsInput> {
             tmpCol["headerTooltip"] = tmpColDef.displayName;
           }
 
-          tmpCol["headerMenu"] = this.headerMenu;
+          if (this._showHeaderMenu) tmpCol["headerMenu"] = this.headerMenu;
           tmpCol["formatter"] = (cell: any) =>
             commonFormatter(cell, tmpColDef?.readonly ?? false);
           if (tmpColDef?.linkTo)
@@ -568,8 +590,7 @@ class GenericGrid extends React.Component<iPropsInput> {
     if (this._gridConfig?.ExtraColumns) {
       this._gridConfig?.ExtraColumns.forEach((column: iExtraColumn) => {
         let tmpCol: any = { title: column.displayName, field: column.name };
-
-        tmpCol["headerMenu"] = this.headerMenu;
+        if (this._showHeaderMenu) tmpCol["headerMenu"] = this.headerMenu;
         if (column?.options) {
           tmpCol = Object.assign(tmpCol, column.options);
         }
@@ -1010,7 +1031,9 @@ class GenericGrid extends React.Component<iPropsInput> {
   SetHeaderTabs = () => {};
   /* istanbul ignore next */
   SelectOrDeselectAllRows = (useCheckbox: boolean) => {
-    let tmpChkHeader = document.getElementById("chkHeader") as HTMLInputElement;
+    let tmpChkHeader = document.getElementById(
+      "chkHeader" + this._gridId
+    ) as HTMLInputElement;
     if (!useCheckbox) {
       tmpChkHeader.checked = !tmpChkHeader.checked;
     }
@@ -1160,7 +1183,7 @@ class GenericGrid extends React.Component<iPropsInput> {
 
   HandleUnsavedData = () => {
     let tmpDivUnSavedChanges = document.getElementById(
-      "divUnSavedChanges"
+      "divUnSavedChanges" + this._gridId
     ) as HTMLDivElement;
 
     let tmpBtnSave = document.getElementById("btnSave")
@@ -1232,7 +1255,9 @@ class GenericGrid extends React.Component<iPropsInput> {
       tmpTotalRecords = this.state.data.length;
     }
 
-    (document.getElementById("divTotalRecords") as HTMLDivElement).innerText =
+    (document.getElementById(
+      "divTotalRecords" + this._gridId
+    ) as HTMLDivElement).innerText =
       "Total Records: " + tmpTotalRecords.toString();
   };
 
@@ -1680,7 +1705,7 @@ class GenericGrid extends React.Component<iPropsInput> {
                         className="editable_grid_actions_li"
                       >
                         <button
-                          id={tmpButton.id}
+                          id={tmpButton.id + this._gridId}
                           type="button"
                           className="editable_grid_actions_button"
                           aria-hidden="true"
@@ -1730,11 +1755,14 @@ class GenericGrid extends React.Component<iPropsInput> {
         <div className="gridFooterDiv btn-toolbar">
           <div
             className="unSavedChnages btn-toolbar HideElement"
-            id="divUnSavedChanges"
+            id={"divUnSavedChanges" + this._gridId}
           >
             Warning: Unsaved Changes
           </div>
-          <div className="totalRecodsDiv" id="divTotalRecords"></div>
+          <div
+            className="totalRecodsDiv"
+            id={"divTotalRecords" + this._gridId}
+          ></div>
         </div>
         {this._showValidationsMessage && (
           <div>
