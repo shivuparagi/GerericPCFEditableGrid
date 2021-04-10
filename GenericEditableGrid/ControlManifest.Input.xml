@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="GenericEditableGrid" constructor="GenericEditableGrid" version="1.0.104" display-name-key="GenericEditableGrid" description-key="GenericEditableGrid description" control-type="standard">
+  <control namespace="GenericEditableGrid" constructor="GenericEditableGrid" version="1.0.114" display-name-key="GenericEditableGrid" description-key="GenericEditableGrid description" control-type="standard">
     <data-set name="sampleDataSet" display-name-key="Dataset_Display_Key" cds-data-set-options="displayCommandBar:true;displayViewSelector:true;displayQuickFindSearch:true"></data-set>
     <property name="PrimaryKeyName" display-name-key="PrimaryKeyName" description-key="PrimaryKeyName" of-type="SingleLine.Text" usage="input" required="true" />
     <property name="PrimaryFieldName" display-name-key="PrimaryFieldName" description-key="PrimaryFieldName" of-type="SingleLine.Text" usage="input" required="true" />
