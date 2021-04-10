@@ -181,10 +181,14 @@ class GenericGrid extends React.Component<iPropsInput> {
     this._context = props.context;
     this._gridConfig = props.gridConfig?.config;
     this._hygiene = props.hygiene;
-    if (
-      this._gridConfig?.ShowValidationsMessage !== null &&
-      this._gridConfig.ShowValidationsMessage !== undefined
-    )
+
+    // if (
+    //   this._gridConfig?.ShowValidationsMessage !== null &&
+    //   this._gridConfig.ShowValidationsMessage !== undefined
+    // )
+    //   this._showValidationsMessage = this._gridConfig?.ShowValidationsMessage;
+
+    if (this._gridConfig.hasOwnProperty("ShowValidationsMessage"))
       this._showValidationsMessage = this._gridConfig?.ShowValidationsMessage;
 
     this._parentEntityId = (props.context as any)?.page?.entityId;
@@ -1372,6 +1376,7 @@ class GenericGrid extends React.Component<iPropsInput> {
   };
 
   OnSaveClick = async () => {
+    let tmpResults: any = undefined;
     if (this.state.validations.length === 0) {
       let tmpData = this.state.data;
       let arrOfIdsVisible = tmpData.map(
@@ -1430,7 +1435,7 @@ class GenericGrid extends React.Component<iPropsInput> {
 
       try {
         //@ts-ignore
-        let tmpResults = await Promise.allSettled(tmpPromizes);
+        tmpResults = await Promise.allSettled(tmpPromizes);
         let tmpErrors: any[] = [];
         let tmpSuccesses: any[] = [];
 
@@ -1546,6 +1551,7 @@ class GenericGrid extends React.Component<iPropsInput> {
         console.log(exx);
       }
     }
+    return tmpResults;
   };
 
   GetRecordForServerCall = (tmpRecord: any, boolIsNew: boolean) => {
