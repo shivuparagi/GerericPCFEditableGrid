@@ -74,13 +74,17 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 
 	public getConfigFromWebResource()
 	{
-		let tmpFunctionName = this._context.parameters.ConfigFunctionName.raw ?? "";
-		if(tmpFunctionName!=="")
+		try
 		{
-			//@ts-ignore
-			return window[tmpFunctionName](); 
-		} 
-		return {};
+			let tmpFunctionName = this._context.parameters.ConfigFunctionName.raw ?? "";
+			if(tmpFunctionName!=="")
+			{
+				//@ts-ignore
+				return window[tmpFunctionName](); 
+			} 
+		}
+		catch{}
+		return undefined;
 	}
   
 	/**
@@ -106,7 +110,6 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 				{
 					// //@ts-ignore
 					// tmpGridConfig = getConfig();
-
 					tmpGridConfig = this.getConfigFromWebResource();
 				}
 				catch
@@ -151,10 +154,10 @@ export class GenericEditableGrid implements ComponentFramework.StandardControl<I
 		catch{}
 		
 		// /* For local START*/
-		//this.props.optionSets = GetSampleOptionSets();
-		// 	this.props.gridConfig = GetSampleConfig();
-		// 	ReactDOM.render(React.createElement(GenericGrid, this.props),this._container);
-		// 	return;
+			// this.props.optionSets = GetSampleOptionSets();
+			// this.props.gridConfig = GetSampleConfig();
+			// ReactDOM.render(React.createElement(GenericGrid, this.props),this._container);
+			// return;
 		// /*For local END*/
 
 		try
