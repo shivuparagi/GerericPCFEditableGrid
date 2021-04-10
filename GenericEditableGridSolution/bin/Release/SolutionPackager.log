@@ -507,3 +507,38 @@ Unmanaged Pack complete.
 2021-04-10 13:41:38.746 - Info	
 Managed Pack complete.
 
+2021-04-10 16:25:37.187 - Info	
+Packing C:\Shiva\GenericEditableGrid\GenericEditableGridSolution\obj\Release\Metadata to bin\Release\GenericEditableGridSolution.zip and bin\Release\GenericEditableGridSolution_managed.zip
+
+2021-04-10 16:25:37.249 - Info	Processing Component: Entities
+2021-04-10 16:25:37.265 - Info	Processing Component: Roles
+2021-04-10 16:25:37.281 - Info	Processing Component: Workflows
+2021-04-10 16:25:37.281 - Info	Processing Component: FieldSecurityProfiles
+2021-04-10 16:25:37.281 - Info	Processing Component: Templates
+2021-04-10 16:25:37.281 - Info	Processing Component: EntityMaps
+2021-04-10 16:25:37.281 - Info	Processing Component: EntityRelationships
+2021-04-10 16:25:37.312 - Info	Processing Component: OrganizationSettings
+2021-04-10 16:25:37.312 - Info	Processing Component: optionsets
+2021-04-10 16:25:37.312 - Info	Processing Component: CustomControls
+2021-04-10 16:25:37.359 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-04-10 16:25:38.015 - Info	Processing Component: SolutionPluginAssemblies
+2021-04-10 16:25:38.015 - Info	Processing Component: EntityDataProviders
+2021-04-10 16:25:38.156 - Info	
+Unmanaged Pack complete.
+
+2021-04-10 16:25:38.156 - Info	Processing Component: Entities
+2021-04-10 16:25:38.156 - Info	Processing Component: Roles
+2021-04-10 16:25:38.156 - Info	Processing Component: Workflows
+2021-04-10 16:25:38.156 - Info	Processing Component: FieldSecurityProfiles
+2021-04-10 16:25:38.156 - Info	Processing Component: Templates
+2021-04-10 16:25:38.156 - Info	Processing Component: EntityMaps
+2021-04-10 16:25:38.156 - Info	Processing Component: EntityRelationships
+2021-04-10 16:25:38.156 - Info	Processing Component: OrganizationSettings
+2021-04-10 16:25:38.156 - Info	Processing Component: optionsets
+2021-04-10 16:25:38.171 - Info	Processing Component: CustomControls
+2021-04-10 16:25:38.171 - Info	 - GenericEditableGrid.GenericEditableGrid
+2021-04-10 16:25:38.171 - Info	Processing Component: SolutionPluginAssemblies
+2021-04-10 16:25:38.171 - Info	Processing Component: EntityDataProviders
+2021-04-10 16:25:38.312 - Info	
+Managed Pack complete.
+
